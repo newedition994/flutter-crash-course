@@ -36,7 +36,16 @@ class RandomWordsState extends State<RandomWords> {
         style: TextStyle(fontSize: 18.0),
       ),
       trailing: Icon(alreadySaved ? Icons.favorite : Icons.favorite_border,
-          color: alreadySaved ? Colors.pink[100] : null),
+          color: alreadySaved ? Colors.pink[300] : null),
+      onTap: () {
+        setState(() {
+          if (alreadySaved) {
+            _savedWordPairs.remove(pair);
+          } else {
+            _savedWordPairs.add(pair);
+          }
+        });
+      },
     );
   }
 
