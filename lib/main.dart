@@ -6,7 +6,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
     return MaterialApp(
         theme: ThemeData(primaryColor: Colors.pink[400]), home: RandomWords());
   }
@@ -18,26 +17,20 @@ class RandomWords extends StatefulWidget {
 }
 
 class RandomWordsState extends State<RandomWords> {
+  final _randomWordPairs = <WordPair>[];
+
   Widget _buildList() {
-    return ListView(
-      padding: const EdgeInsets.all(8),
-      children: <Widget>[
-        Container(
-          height: 50,
-          color: Colors.amber[600],
-          child: const Center(child: Text('Entry A')),
-        ),
-        Container(
-          height: 50,
-          color: Colors.amber[500],
-          child: const Center(child: Text('Entry B')),
-        ),
-        Container(
-          height: 50,
-          color: Colors.amber[100],
-          child: const Center(child: Text('Entry C')),
-        ),
-      ],
+    return ListView.builder(
+      padding: const EdgeInsets.all(16.0),
+      itemBuilder: (context, item) {
+        if (item.isOdd) return Divider();
+
+        final index = item ~/ 2;
+
+        if (index >= _randomWordPairs.length) {
+          _randomWordPairs.addAll(generateWordPairs().take(10));
+        }
+      },
     );
   }
 
