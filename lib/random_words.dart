@@ -49,8 +49,19 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
+  void _pushedSaved() {}
+
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('WordPair Generator')), body: _buildList());
+        appBar: AppBar(
+          title: Text('WordPair Generator'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.list),
+              onPressed: _pushedSaved,
+            )
+          ],
+        ),
+        body: _buildList());
   }
 }
