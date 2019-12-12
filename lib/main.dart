@@ -30,6 +30,8 @@ class RandomWordsState extends State<RandomWords> {
         if (index >= _randomWordPairs.length) {
           _randomWordPairs.addAll(generateWordPairs().take(10));
         }
+
+        return _buildRow(_randomWordPairs[index]);
       },
     );
   }
