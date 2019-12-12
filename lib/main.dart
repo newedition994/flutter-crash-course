@@ -8,7 +8,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData(primaryColor: Colors.pink[400]),
         home: Scaffold(
-          appBar: AppBar(title: Text('WordPair Generator')),
-        ));
+            appBar: AppBar(title: Text('WordPair Generator')),
+            body: Center(
+              child: Text('Hello World'),
+            )));
   }
 }
