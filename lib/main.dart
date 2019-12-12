@@ -36,6 +36,10 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
+  Widget _buildRow(WordPair pair) {
+    return ListTile(title: Text('Hello'));
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text('WordPair Generator')), body: _buildList());
